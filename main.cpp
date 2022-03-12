@@ -18,7 +18,7 @@ struct student {
 // Test each task as you complete it to ensure that it is correct.
 
 void question1() {  // Topic: Accessing array using Pointer Notation
-    cout << "Question 1" << endl;
+    cout << "Question 1 - arrays and pointers" << endl;
 
     double array[] = {1.1, 2.2, 3.3, 4.4, 5.5};
 
@@ -43,11 +43,9 @@ void question1() {  // Topic: Accessing array using Pointer Notation
     //     and output the last element using the pointer.
 
 
-
     //TODO 1f. Using a for(){} loop, iterate in reverse (right-to-left)
     //         through the elements, outputting each element using
     //         the pointer 'ptr' and pointer notation. (NOT array notation)
-
 
 
     //TODO g. Given a C-style string (i.e. array of char) that stores one word,
@@ -60,13 +58,14 @@ void question1() {  // Topic: Accessing array using Pointer Notation
 
     char word[] = "Mississippi";        // given
 
+
 }
 
 //////////////////////////  Question 2   ////////////////////////////
 
 void question2() {  // dynamic memory allocation
 
-    cout << "Question 2" << endl;
+    cout << "Question 2 - dynamic memory allocation" << endl;
 
     //TODO 2a(i).
     //      Dynamically allocate a block of memory to store an array of 100
@@ -124,7 +123,7 @@ void question2() {  // dynamic memory allocation
 
 
 void question3() {
-    cout << "Question 3 - calling bounce(3):" << endl;
+    cout << "Question 3 - recursion" << endl;
 
 }
 /////////////////////// Question 4 /////////////////////////////////
