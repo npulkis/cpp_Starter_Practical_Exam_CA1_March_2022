@@ -22,6 +22,7 @@ void initialize(student &Student);
 void display_student(const student& Student);
 void incrementAge(student *Student);
 void fillArray(student array[],int size);
+void bounce(int number);
 
 
 // Do NOT modify any code that is given to you.
@@ -201,10 +202,23 @@ void average_pointer_notation (int *array ,int size){
 //      Call your function with the integer argument 3.
 
 /////////////////////// Question 3 ////////////////////////////////
+void bounce(int number){
+    cout << number << endl;
 
+    if (number>0){
+        bounce(number-1);
+    }
+
+    if (number > 0){
+        cout << number<<endl;
+    }
+
+}
 
 void question3() {
     cout << "Question 3 - recursion" << endl;
+
+    bounce(3);
 
 }
 /////////////////////// Question 4 /////////////////////////////////
