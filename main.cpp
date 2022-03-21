@@ -1,3 +1,4 @@
+//Nathan Pulkis
 #include <iostream> // <<<  Starter Code for C++ CA1 March 2022  >>>
 #include <cstdlib>
 #include <ctime>
@@ -24,28 +25,48 @@ void question1() {  // Topic: Accessing array using Pointer Notation
 
     //TODO  1a. Declare a pointer named 'ptr' and assign it
     //      to point at the array 'array'
-
+    double *ptr = array;
 
     //TODO  1b. Write a for(){} loop that will output all elements in
     //      the array using POINTER NOTATION (NOT Array notation)
     //      by de-referencing the pointer.
 
+    for (int i = 0; i < 5; ++i) {
+        cout << *ptr << endl;
+        ptr++;
+    }
+
 
     //TODO  1c. Output the size in bytes of the pointer 'ptr'
+
+    cout << "size of array in bytes:" <<sizeof ptr << endl;
 
 
     //TODO 1d. Write code to calculate and output the number of elements in the
     //         array 'array' (i.e. Output the number of elements
     //         in the array 'array' without hard-coding the size)
+    int size = sizeof(array) / sizeof(double);
+
+   cout << "number of elements in array: " << size << endl;
 
 
     //TODO 1e. Set the pointer 'ptr' to point at the LAST array element
     //     and output the last element using the pointer.
+            ptr--;
+            cout << "last element: " << *ptr << endl;
+
+
 
 
     //TODO 1f. Using a for(){} loop, iterate in reverse (right-to-left)
     //         through the elements, outputting each element using
     //         the pointer 'ptr' and pointer notation. (NOT array notation)
+
+    for (int i = 0; i < size; ++i) {
+        cout << *ptr << endl;
+        ptr--;
+
+    }
 
 
     //TODO g. Given a C-style string (i.e. array of char) that stores one word,
@@ -57,6 +78,14 @@ void question1() {  // Topic: Accessing array using Pointer Notation
     //    Output the count of the characters.
 
     char word[] = "Mississippi";        // given
+
+    char *pChar = word;
+
+    while (*pChar){
+        cout<< *pChar<<",";
+        pChar++;
+    }
+    cout << endl;
 
 
 }
