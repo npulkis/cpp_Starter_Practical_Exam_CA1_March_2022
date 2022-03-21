@@ -12,10 +12,17 @@ struct student {
     int age;
 };
 
+
+
 // function prototypes
 //?
 void average_array_notation(const int array[],int size);
 void average_pointer_notation (int *array ,int size);
+void initialize(student &Student);
+void display_student(const student& Student);
+void incrementAge(student *Student);
+void fillArray(student array[],int size);
+
 
 // Do NOT modify any code that is given to you.
 // Test each task as you complete it to ensure that it is correct.
@@ -85,12 +92,13 @@ void question1() {  // Topic: Accessing array using Pointer Notation
     char word[] = "Mississippi";        // given
 
     char *pChar = word;
-
+    int count=0;
     while (*pChar){
-        cout<< *pChar<<",";
+
+        if (*pChar == 's'){count++;}
         pChar++;
     }
-    cout << endl;
+    cout<< "number of s:" << count << endl;
 
     pChar= nullptr;
     delete pChar;
@@ -202,24 +210,98 @@ void question3() {
 /////////////////////// Question 4 /////////////////////////////////
 
 // Q4(a)  initialize_student( ... )
+void initialize(student &Student){
+
+    Student.name ="Joe Bloggs";
+    Student.studentNumber="D00003377";
+    Student.age = 18;
+
+}
 
 
 // Q4(b)   display_student( ... )
+void display_student(const student& Student){
+    cout << string(30,'=') <<endl;
 
+    cout <<"Name: " <<Student.name <<endl;
+    cout <<"Student Number: "<< Student.studentNumber<<endl;
+    cout<<"Age: " << Student.age<<endl;
+    cout << string(30,'=') <<endl;
+
+}
 
 // Q4(c)    incrementAge( ... )
 
+void incrementAge(student *Student){
+    int age = Student->age;
+    age++;
+
+    Student->age=age;
+
+
+}
 
 //Q4(d)     fillArray( ... )
+
+void fillArray(student array[],int size){
+
+    for (int i = 0; i < size; ++i) {
+
+        string name;
+        string studentNumber;
+        int age;
+
+        cout << "Enter Name: "<<endl;
+        cin >> name;
+
+        cout << "Enter Student Number: "<< endl;
+        cin >> studentNumber;
+
+        cout << "Enter age: " << endl;
+        cin >> age;
+
+        array[i].name=name;
+        array[i].studentNumber=studentNumber;
+        array[i].age=age;
+
+
+    }
+
+}
 
 
 void question4() {
     cout << "Question 4 - struct student" << endl;
 
 
+    student StudentA;
+    StudentA.name ="Joe Bloggs";
+    StudentA.studentNumber="D00003377";
+    StudentA.age = 18;
+
+    student StudentB;
+
+    initialize(StudentB);
+
+    display_student(StudentB);
+
+    incrementAge(&StudentB);
+
+    display_student(StudentB);
+
+    int size=3;
+    student studentArray[size];
+
+    fillArray(studentArray,size);
+
+    for (int i = 0; i < size; ++i) {
+        display_student(studentArray[i]);
+    }
+
+
+
 
 }
-
 
 
 int main() {
