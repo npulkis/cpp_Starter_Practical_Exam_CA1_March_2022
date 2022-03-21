@@ -14,6 +14,8 @@ struct student {
 
 // function prototypes
 //?
+void average_array_notation(const int array[],int size);
+void average_pointer_notation (int *array ,int size);
 
 // Do NOT modify any code that is given to you.
 // Test each task as you complete it to ensure that it is correct.
@@ -68,6 +70,9 @@ void question1() {  // Topic: Accessing array using Pointer Notation
 
     }
 
+    ptr = nullptr;
+    delete ptr;
+
 
     //TODO g. Given a C-style string (i.e. array of char) that stores one word,
     //    declare a pointer pChar and set it to point at the first character
@@ -86,6 +91,9 @@ void question1() {  // Topic: Accessing array using Pointer Notation
         pChar++;
     }
     cout << endl;
+
+    pChar= nullptr;
+    delete pChar;
 
 
 }
@@ -110,7 +118,14 @@ void question2() {  // dynamic memory allocation
 
     // code to generate random number in a range
     srand((unsigned) time(0));      // use current time to seed rand() - given
-    int randomNumber = (rand() % 100) + 1;    // IN RANGE 1 TO 100  - given
+
+        int array[size];
+
+    for (int i = 0; i < size; ++i) {
+        int randomNumber = (rand() % 100) + 1;    // IN RANGE 1 TO 100  - given
+
+        array[i]= randomNumber;
+    }
 
 
     //TODO  Q.2a(ii)
@@ -119,6 +134,7 @@ void question2() {  // dynamic memory allocation
     //      the average of the EVEN values.  Output the returned average value.
     //      Use ARRAY Notation in your function.
     //      (Remember to use a function prototype if necessary)
+    average_array_notation(array,size);
 
 
 
@@ -129,15 +145,43 @@ void question2() {  // dynamic memory allocation
     //      Use POINTER Notation and pointer arithmetic in your function.
     //      (Remember to use a function prototype if necessary)
 
-
+    average_pointer_notation(array,size);
 
 
 }
 
 // Q2.a(ii)     average_array_notation(...)
+void average_array_notation(const int array[],int size){
+
+    int evenNums = 0;
+    int numberOfEven = 0;
+    for (int i = 0; i < size; ++i) {
+        if (array[i] % 2 == 0){
+            evenNums = evenNums + array[i];
+            numberOfEven++;
+        }
+    }
+
+    cout << "The average is: " << evenNums / numberOfEven <<endl;
+}
 
 
 // Q2.a(iii)    average_pointer_notation(...)
+
+void average_pointer_notation (int *array ,int size){
+    int odd=0;
+    int numOfOdd=0;
+
+    for (int i = 0; i < size; ++i) {
+        if (*array%2 != 0){
+        odd= odd + *array;
+        numOfOdd++;
+
+        }
+        array++;
+    }
+    cout << "average of odd : " << odd/numOfOdd <<endl;
+}
 
 
 //TODO Q3  (Recursion)
